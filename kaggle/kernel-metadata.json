@@ -1,0 +1,12 @@
+{
+  "id": "your-kaggle-username/predict-customer-churn-baseline",
+  "title": "Predict Customer Churn Baseline",
+  "code_file": "01_catboost_baseline.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": []
+}

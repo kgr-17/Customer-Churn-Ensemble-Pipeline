@@ -1,0 +1,39 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+kaggle.json
+.kaggle/
+*.pem
+*.key
+*.p12
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Generated data, model artifacts, and training logs
+data/
+outputs/
+artifacts/
+catboost_info/
+mlruns/
+wandb/
+*.cbm
+*.pkl
+*.joblib
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

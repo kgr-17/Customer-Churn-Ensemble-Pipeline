@@ -1,0 +1,43 @@
+services:
+  ml:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: predict-customer-churn-ml
+    working_dir: /workspace
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN}
+      KAGGLE_COMPETITION: ${KAGGLE_COMPETITION}
+      KAGGLE_CONFIG_DIR: /kaggle
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    volumes:
+      - .:/workspace
+      - ${USERPROFILE}/.kaggle:/kaggle:ro
+    stdin_open: true
+    tty: true
+
+  ml-gpu:
+    profiles: ["gpu"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: predict-customer-churn-ml-gpu
+    working_dir: /workspace
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN}
+      KAGGLE_COMPETITION: ${KAGGLE_COMPETITION}
+      KAGGLE_CONFIG_DIR: /kaggle
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    ports:
+      - "${JUPYTER_PORT_GPU:-8890}:8888"
+    volumes:
+      - .:/workspace
+      - ${USERPROFILE}/.kaggle:/kaggle:ro
+    gpus:
+      - driver: nvidia
+        count: all
+        capabilities: [gpu]
+    stdin_open: true
+    tty: true
