@@ -1,4 +1,4 @@
-# PredictCustomerChurn - Docker + Jupyter + Kaggle Baseline
+# Predict Customer Churn - Docker + Jupyter + Kaggle Baseline
 
 This project sets up a reproducible local environment for the 2026 Kaggle Playground churn competition and provides a first CatBoost baseline.
 
